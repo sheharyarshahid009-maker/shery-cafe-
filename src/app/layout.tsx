@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
-      <body className="bg-ink-950 text-zinc-100 font-sans antialiased min-h-screen">
+      <body className="bg-ink-950 text-zinc-100 font-sans antialiased min-h-screen overflow-x-clip">
         <Navbar />
         <main className="min-h-[80vh]">{children}</main>
         <CartDrawer />
