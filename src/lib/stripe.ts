@@ -16,7 +16,8 @@ export function getStripe(): Stripe | null {
   const key = process.env.STRIPE_SECRET_KEY;
   if (!key) return null;
   if (!stripeSingleton) {
-    stripeSingleton = new Stripe(key, { apiVersion: "2024-06-20" });
+    stripeSingleton = new Stripe(key, { 
+apiVersion: "2025-02-24.acacia" });
   }
   return stripeSingleton;
 }
