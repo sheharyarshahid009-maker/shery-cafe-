@@ -24,8 +24,8 @@ export async function verifyPassword(
 }
 
 function base64urlEncode(bytes: ArrayBuffer | Uint8Array): string {
-  const buf = Buffer.from(bytes);
-  return buf.toString("base64url");
+  const view = bytes instanceof Uint8Array ? bytes : new Uint8Array(bytes);
+  return Buffer.from(view).toString("base64url");
 }
 
 function base64urlDecode(input: string): Uint8Array {
