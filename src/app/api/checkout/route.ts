@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
+import { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { requireAdmin } from "@/lib/admin-guard";
 import { createPaymentIntent, isStripeConfigured } from "@/lib/stripe";
@@ -64,12 +65,7 @@ export async function POST(req: NextRequest) {
     const byId = new Map(dbItems.map((i) => [i.id, i]));
 
     let subtotalCents = 0;
-    const orderItems: {
-      menuItemId: string;
-      quantity: number;
-      unitPriceCents: number;
-      customizations: unknown;
-    }[] = [];
+    const orderItems: Prisma.OrderItemCreateWithoutOrderInput[] = [];
 
     for (const line of body.items) {
       const db = byId.get(line.menuItemId);
@@ -82,10 +78,10 @@ export async function POST(req: NextRequest) {
         line.customizations.reduce((s, c) => s + c.priceDeltaCents, 0);
       subtotalCents += unit * line.quantity;
       orderItems.push({
-        menuItemId: db.id,
         quantity: line.quantity,
         unitPriceCents: unit,
-        customizations: line.customizations as never,
+        customizations: line.customizations as unknown as Prisma.InputJsonValue,
+        menuItem: { connect: { id: db.id } },
       });
     }
 
