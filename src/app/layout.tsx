@@ -21,6 +21,12 @@ const criticalStyles = `
   .text-zinc-400 { color: #a1a1aa !important; }
   .text-gold-400 { color: #F59E0B !important; }
   .text-gold-500 { color: #D97706 !important; }
+  /* Responsive grid without media queries — auto-fits columns */
+  .auto-grid {
+    display: grid !important;
+    gap: 1.25rem !important;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+  }
 `;
 
 export default function RootLayout({

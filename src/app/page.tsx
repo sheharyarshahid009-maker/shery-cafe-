@@ -77,7 +77,7 @@ export default function HomePage() {
             <ShoppingBag className="h-4 w-4" /> Full Menu
           </Link>
         </div>
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="auto-grid">
           {featured.map((item, i) => (
             <motion.div
               key={item.id}
