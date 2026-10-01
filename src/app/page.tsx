@@ -235,7 +235,7 @@ export default function HomePage() {
               src="/owner.jpg"
               alt="Sheharyar — Owner of Shery Cafe"
               fill
-              className="object-cover object-top"
+              className="object-cover object-center"
               sizes="50vw"
             />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-950/60 via-transparent to-transparent" />
