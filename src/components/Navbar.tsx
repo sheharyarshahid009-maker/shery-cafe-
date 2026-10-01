@@ -17,7 +17,6 @@ const LINKS = [
 export default function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const [drawerOpen, setDrawerOpen] = useState(false);
   const itemCount = useCart((s) => s.itemCount());
 
   if (pathname.startsWith("/admin")) return null;

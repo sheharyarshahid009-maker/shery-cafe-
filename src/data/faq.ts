@@ -1,10 +1,10 @@
 export const CAFE = {
   name: "Shery Cafe",
   tagline: "Shery Cafe: Taste, Vibe & Entertainment",
-  phone: "+92 300 0000000",
-  address: "Main Boulevard, Gulberg, Lahore, Pakistan",
+  phone: "0339 6030012",
+  address: "Defence Phase VI, Karachi, Pakistan",
   hours: "Mon–Sun · 12:00 PM – 2:00 AM",
-  deliveryAreas: "Gulberg, DHA Phase 1–5, Model Town, Johar Town",
+  deliveryAreas: "DHA Phase 5–8, Clifton, PECHS, Bahadurabad",
   deliveryFeeRs: "Rs 150 flat (free above Rs 2,500)",
 };
 

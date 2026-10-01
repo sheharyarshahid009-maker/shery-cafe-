@@ -21,7 +21,7 @@ import { formatPKR } from "@/lib/format";
 const REVIEWS = [
   {
     name: "Ayesha K.",
-    text: "The Spanish latte is genuinely the best I have had in Lahore. The lounge vibe at night is unmatched.",
+    text: "The Spanish latte is genuinely the best I have had in Karachi. The lounge vibe at night is unmatched.",
     rating: 5,
   },
   {
