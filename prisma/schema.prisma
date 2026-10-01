@@ -1,0 +1,175 @@
+// ── Shery Cafe data model ──────────────────────────────────────────────
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  CUSTOMER
+}
+
+enum OrderStatus {
+  PENDING
+  PREPARING
+  READY
+  DELIVERED
+  CANCELLED
+}
+
+enum OrderType {
+  DELIVERY
+  PICKUP
+  DINE_IN
+}
+
+enum PaymentMethod {
+  STRIPE
+  JAZZCASH
+  EASYPAISA
+  COD
+  PAY_AT_TABLE
+}
+
+enum PaymentStatus {
+  UNPAID
+  PAID
+  REFUNDED
+}
+
+enum ReservationArea {
+  TABLE
+  PS5
+  VR
+  SNOOKER
+  ARCADE
+}
+
+enum ReservationStatus {
+  PENDING
+  CONFIRMED
+  REJECTED
+  CANCELLED
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  role         Role     @default(CUSTOMER)
+  name         String?
+  phone        String?
+  ageVerified  Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  orders       Order[]
+}
+
+model Category {
+  id        String     @id @default(cuid())
+  name      String
+  slug      String     @unique
+  sortOrder Int        @default(0)
+  items     MenuItem[]
+}
+
+model MenuItem {
+  id                   String   @id @default(cuid())
+  title                String
+  slug                 String   @unique
+  description          String
+  priceCents           Int
+  imageUrl             String?
+  categoryId           String
+  category             Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  tags                 String[] @default([])
+  spiceLevel           Int? // 0-3, null when not applicable
+  isAvailable          Boolean  @default(true)
+  isAgeRestricted      Boolean  @default(false) // sheesha etc. (18+)
+  customizationOptions Json? // [{ name, type: "single"|"multi", choices: [{label, priceDeltaCents}] }]
+  orderItems           OrderItem[]
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+
+  @@index([categoryId])
+}
+
+model Order {
+  id            String        @id @default(cuid())
+  userId        String?
+  user          User?         @relation(fields: [userId], references: [id], onDelete: SetNull)
+  status        OrderStatus   @default(PENDING)
+  type          OrderType     @default(DELIVERY)
+  paymentMethod PaymentMethod @default(COD)
+  paymentStatus PaymentStatus @default(UNPAID)
+  subtotalCents Int
+  discountCents Int           @default(0)
+  totalCents    Int
+  promoCode     String?
+  customerName  String
+  customerPhone String
+  address       String?
+  tableNumber   String?
+  notes         String?
+  items         OrderItem[]
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  @@index([status])
+  @@index([createdAt])
+}
+
+model OrderItem {
+  id            String   @id @default(cuid())
+  orderId       String
+  order         Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  menuItemId    String
+  menuItem      MenuItem @relation(fields: [menuItemId], references: [id], onDelete: Restrict)
+  quantity      Int
+  unitPriceCents Int
+  customizations Json? // [{ option, choice, priceDeltaCents }]
+
+  @@index([orderId])
+}
+
+model Reservation {
+  id        String            @id @default(cuid())
+  name      String
+  phone     String
+  date      DateTime          @db.Date
+  timeSlot  String // e.g. "19:00-21:00"
+  guests    Int
+  areaType  ReservationArea   @default(TABLE)
+  status    ReservationStatus @default(PENDING)
+  notes     String?
+  createdAt DateTime          @default(now())
+
+  @@index([date, areaType])
+}
+
+model PromoCode {
+  id              String    @id @default(cuid())
+  code            String    @unique
+  percentOff      Int // 1-100
+  maxDiscountCents Int?
+  minOrderCents   Int?      @default(0)
+  active          Boolean   @default(true)
+  expiresAt       DateTime?
+  createdAt       DateTime  @default(now())
+}
+
+model Banner {
+  id        String   @id @default(cuid())
+  title     String
+  subtitle  String?
+  imageUrl  String?
+  ctaText   String?
+  ctaHref   String?
+  active    Boolean  @default(true)
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+}
