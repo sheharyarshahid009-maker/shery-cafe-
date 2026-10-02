@@ -80,7 +80,7 @@ async function main() {
       description:
         "Char-grilled tikka served sizzling with mint chutney, onion rings and butter naan.",
       priceCents: 94900,
-      imageUrl: IMG("photo-1606491956689-2ea866880c84"),
+      imageUrl: IMG("photo-1555939594-58d7cb561ad1"),
       category: "food",
       spiceLevel: 3,
     },
@@ -332,7 +332,7 @@ async function main() {
       description:
         "30 arcade credits plus a zinger burger and soft drink — the ultimate hangout package.",
       priceCents: 119900,
-      imageUrl: IMG("photo-1511882150382-421056c89033"),
+      imageUrl: IMG("photo-1550745165-9bc0b252726f"),
       category: "play-area",
       tags: ["Chef Special"],
     },
