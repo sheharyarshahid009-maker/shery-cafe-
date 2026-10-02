@@ -17,6 +17,7 @@ import {
   Twitter,
   Award,
   Clock,
+  PartyPopper,
 } from "lucide-react";
 import Hero from "@/components/Hero";
 import { useEffect, useState } from "react";
@@ -149,9 +150,14 @@ export default function HomePage() {
               Hourly bookings, VR sessions and combo food + gaming packages —
               reserve your slot and skip the wait.
             </p>
-            <Link href="/book" className="btn-gold mt-6">
-              <Gamepad2 className="h-5 w-5" /> Book a Slot
-            </Link>
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+              <Link href="/book" className="btn-gold">
+                <Gamepad2 className="h-5 w-5" /> Book a Slot
+              </Link>
+              <Link href="/party" className="btn-ghost">
+                <PartyPopper className="h-5 w-5" /> Book Your Party
+              </Link>
+            </div>
           </motion.div>
           <div className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-4">
             {GAMING.map((g, i) => (
@@ -179,6 +185,36 @@ export default function HomePage() {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* Party banner — prominent */}
+      <section className="mx-auto max-w-7xl px-4 sm:px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="relative overflow-hidden rounded-3xl border border-gold-500/30 bg-gradient-to-r from-gold-500/15 via-gold-500/5 to-transparent p-8 sm:p-12"
+        >
+          <div className="pointer-events-none absolute -top-20 -right-20 h-56 w-56 rounded-full bg-gold-500/20 blur-3xl" />
+          <div className="relative flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
+            <div>
+              <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-gold-500">
+                <PartyPopper className="h-4 w-4" /> Events & Celebrations
+              </p>
+              <h2 className="section-title mt-2">
+                We Host Parties Too! 🎉
+              </h2>
+              <p className="mt-3 max-w-xl text-sm text-zinc-400">
+                Birthdays, anniversaries, corporate events, farewells — celebrate
+                with food, sheesha, PS5, VR and music, all under one roof!
+              </p>
+            </div>
+            <Link href="/party" className="btn-gold shrink-0">
+              <PartyPopper className="h-5 w-5" /> Book Your Party
+            </Link>
+          </div>
+        </motion.div>
       </section>
 
       {/* Reviews */}
@@ -297,9 +333,9 @@ export default function HomePage() {
                   <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-gold-500/15 text-gold-400">
                     <Award className="h-4 w-4" />
                   </span>
-                  <div>
-                    <p className="font-semibold text-zinc-100">Premium Quality</p>
-                    <p className="text-xs text-zinc-500">Best ingredients</p>
+                  <div className="min-w-0">
+                    <p className="truncate font-semibold text-zinc-100">Premium Quality</p>
+                    <p className="truncate text-xs text-zinc-500">Best ingredients</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-3">
@@ -398,6 +434,11 @@ export default function HomePage() {
               <Link href="/book" className="text-zinc-400 hover:text-gold-400">
                 <span className="inline-flex items-center gap-1.5">
                   <CalendarCheck className="h-3.5 w-3.5" /> Reserve a table
+                </span>
+              </Link>
+              <Link href="/party" className="text-zinc-400 hover:text-gold-400">
+                <span className="inline-flex items-center gap-1.5">
+                  <PartyPopper className="h-3.5 w-3.5" /> Book a party
                 </span>
               </Link>
               <Link href="/admin/login" className="text-zinc-500 hover:text-gold-400">
