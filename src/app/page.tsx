@@ -43,6 +43,13 @@ const GALLERY = [
   "photo-1445116572660-236099ec97a0",
 ];
 
+const GAMING = [
+  { label: "PS5", desc: "Latest titles on 4K setup", id: "photo-1606813907291-d86efa9b94db" },
+  { label: "VR", desc: "Immersive virtual reality", id: "photo-1622979135225-d2ba269cf1ac" },
+  { label: "Snooker", desc: "Pro tables, hourly rates", id: "photo-1615729947596-a598e5de0ab3" },
+  { label: "Arcade", desc: "Classic arcade machines", id: "photo-1511882150382-421056c89033" },
+];
+
 export default function HomePage() {
   const [featured, setFeatured] = useState<MenuItemDTO[]>([]);
 
@@ -119,12 +126,13 @@ export default function HomePage() {
 
       {/* Play area teaser */}
       <section className="border-y border-white/10 bg-ink-900/60">
-        <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 py-16 sm:px-6 md:grid-cols-2">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
           <motion.div
-            initial={{ opacity: 0, x: -24 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
+            className="text-center"
           >
             <p className="text-xs font-semibold uppercase tracking-widest text-gold-500">
               Gaming & Play Area
@@ -132,7 +140,7 @@ export default function HomePage() {
             <h2 className="section-title mt-1">
               PS5 · VR · Snooker · Arcade
             </h2>
-            <p className="mt-3 text-zinc-400">
+            <p className="mx-auto mt-3 max-w-2xl text-zinc-400">
               Hourly bookings, VR sessions and combo food + gaming packages —
               reserve your slot and skip the wait.
             </p>
@@ -140,21 +148,31 @@ export default function HomePage() {
               <Gamepad2 className="h-5 w-5" /> Book a Slot
             </Link>
           </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: 24 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="relative h-64 overflow-hidden rounded-2xl border border-white/10 md:h-80"
-          >
-            <Image
-              src="https://images.unsplash.com/photo-1511882150382-421056c89033?auto=format&fit=crop&w=1000&q=80"
-              alt="Gaming arena"
-              fill
-              className="object-cover"
-              sizes="50vw"
-            />
-          </motion.div>
+          <div className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-4">
+            {GAMING.map((g, i) => (
+              <motion.div
+                key={g.label}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.08 }}
+                className="group relative h-52 overflow-hidden rounded-2xl border border-white/10 md:h-64"
+              >
+                <Image
+                  src={`https://images.unsplash.com/${g.id}?auto=format&fit=crop&w=600&q=80`}
+                  alt={g.label}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="25vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <p className="text-lg font-bold text-white">{g.label}</p>
+                  <p className="text-sm text-zinc-300">{g.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
