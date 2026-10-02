@@ -80,7 +80,7 @@ async function main() {
       description:
         "Char-grilled tikka served sizzling with mint chutney, onion rings and butter naan.",
       priceCents: 94900,
-      imageUrl: IMG("photo-1599487488170-d11ec9c172f0"),
+      imageUrl: IMG("photo-1606491956689-2ea866880c84"),
       category: "food",
       spiceLevel: 3,
     },
@@ -141,7 +141,7 @@ async function main() {
       description:
         "Crispy zinger fillet, spicy mayo, lettuce and cheese stacked tall with a side of fries.",
       priceCents: 74900,
-      imageUrl: IMG("photo-1606755962773-d324e0a13086"),
+      imageUrl: IMG("photo-1550317138-10000687a72b"),
       category: "fast-food",
       spiceLevel: 2,
     },
