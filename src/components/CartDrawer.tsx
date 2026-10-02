@@ -2,10 +2,23 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Minus, Plus, ShoppingBag, Trash2, X, ArrowRight } from "lucide-react";
+import { Minus, Plus, ShoppingBag, Trash2, X, ArrowRight, MessageCircle } from "lucide-react";
 import Link from "next/link";
 import { useCart } from "@/store/cart";
 import { formatPKR } from "@/lib/format";
+
+const WHATSAPP_NUMBER = "923396030012";
+
+function buildWhatsAppOrderUrl(items: ReturnType<typeof useCart.getState>["items"], subtotalCents: number) {
+  const lines = items.map((i, idx) => {
+    const custom = i.customizations.length > 0
+      ? ` (${i.customizations.map((c) => `${c.option}: ${c.choice}`).join(", ")})`
+      : "";
+    return `${idx + 1}. ${i.title}${custom} x${i.quantity} - ${formatPKR(i.unitPriceCents * i.quantity)}`;
+  });
+  const message = `*New Order - Shery Cafe*\n-------------------------\n${lines.join("\n")}\n-------------------------\n*Total: ${formatPKR(subtotalCents)}*`;
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+}
 
 export default function CartDrawer() {
   const [open, setOpen] = useState(false);
@@ -134,10 +147,18 @@ export default function CartDrawer() {
                     {formatPKR(subtotalCents)}
                   </span>
                 </div>
+                <a
+                  href={buildWhatsAppOrderUrl(items, subtotalCents)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#25D366] px-4 py-3 text-sm font-bold text-white transition hover:bg-[#1fb857]"
+                >
+                  <MessageCircle className="h-4 w-4" /> Order via WhatsApp
+                </a>
                 <Link
                   href="/checkout"
                   onClick={() => setOpen(false)}
-                  className="btn-gold w-full"
+                  className="btn-ghost mt-2 w-full"
                 >
                   Proceed to Checkout <ArrowRight className="h-4 w-4" />
                 </Link>
