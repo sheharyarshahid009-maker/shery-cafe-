@@ -323,7 +323,7 @@ async function main() {
       description:
         "Full-size snooker table booking for one hour, cues and chalk included.",
       priceCents: 59900,
-      imageUrl: IMG("photo-1615729947596-a598e5de0ab3"),
+      imageUrl: IMG("photo-1533106418989-88406c7cc8ca"),
       category: "play-area",
     },
     {

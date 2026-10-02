@@ -46,7 +46,7 @@ const GALLERY = [
 const GAMING = [
   { label: "PS5", desc: "Latest titles on 4K setup", id: "photo-1606813907291-d86efa9b94db" },
   { label: "VR", desc: "Immersive virtual reality", id: "photo-1622979135225-d2ba269cf1ac" },
-  { label: "Snooker", desc: "Pro tables, hourly rates", id: "photo-1615729947596-a598e5de0ab3" },
+  { label: "Snooker", desc: "Pro tables, hourly rates", id: "photo-1533106418989-88406c7cc8ca" },
   { label: "Arcade", desc: "Classic arcade machines", id: "photo-1511882150382-421056c89033" },
 ];
 
