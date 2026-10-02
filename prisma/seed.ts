@@ -25,7 +25,7 @@ async function main() {
     catBySlug[c.slug] = row.id;
   }
 
-  // ── Menu items (~24) ────────────────────────────────────────────────────
+  // ── Menu items ──────────────────────────────────────────────────────────
   type Item = {
     title: string;
     slug: string;
@@ -335,6 +335,131 @@ async function main() {
       imageUrl: IMG("photo-1550745165-9bc0b252726f"),
       category: "play-area",
       tags: ["Popular"],
+    },
+    // Premium mains
+    {
+      title: "Grilled Salmon Steak",
+      slug: "grilled-salmon-steak",
+      description:
+        "Norwegian salmon fillet grilled to perfection with lemon butter sauce and herbed rice.",
+      priceCents: 189900,
+      imageUrl: IMG("photo-1467003909585-2f8a72700288"),
+      category: "food",
+      tags: ["Chef Special"],
+      spiceLevel: 1,
+    },
+    {
+      title: "Beef Tenderloin Steak",
+      slug: "beef-tenderloin-steak",
+      description:
+        "Juicy beef tenderloin grilled to your liking with pepper sauce, mashed potatoes and veggies.",
+      priceCents: 219900,
+      imageUrl: IMG("photo-1600891964092-4316c288032e"),
+      category: "food",
+      tags: ["Chef Special"],
+      spiceLevel: 1,
+    },
+    {
+      title: "Grilled Lamb Chops",
+      slug: "grilled-lamb-chops",
+      description:
+        "Tender lamb chops marinated in herbs and grilled over flame, served with mint sauce.",
+      priceCents: 199900,
+      imageUrl: IMG("photo-1603360946369-dc9bb6258143"),
+      category: "food",
+      tags: ["Chef Special"],
+      spiceLevel: 2,
+    },
+    {
+      title: "Grilled Jumbo Prawns",
+      slug: "grilled-jumbo-prawns",
+      description:
+        "Jumbo prawns grilled with garlic butter and served with saffron rice and salad.",
+      priceCents: 179900,
+      imageUrl: IMG("photo-1559742811-822873691df8"),
+      category: "food",
+      tags: ["Chef Special"],
+      spiceLevel: 1,
+    },
+    {
+      title: "Chicken Cordon Bleu",
+      slug: "chicken-cordon-bleu",
+      description:
+        "Crispy chicken breast stuffed with cheese and smoked chicken ham, served with creamy sauce.",
+      priceCents: 149900,
+      imageUrl: IMG("photo-1598103442097-8b74394b95c6"),
+      category: "food",
+      tags: ["Chef Special"],
+    },
+    {
+      title: "Truffle Alfredo Pasta",
+      slug: "truffle-alfredo-pasta",
+      description:
+        "Luxurious fettuccine in truffle-infused alfredo sauce with parmesan and mushrooms.",
+      priceCents: 139900,
+      imageUrl: IMG("photo-1473093295043-cdd812d0e601"),
+      category: "food",
+      tags: ["Chef Special"],
+    },
+    // Premium desserts
+    {
+      title: "Molten Lava Cake",
+      slug: "molten-lava-cake",
+      description:
+        "Warm chocolate cake with a gooey molten center, served with vanilla ice cream.",
+      priceCents: 74900,
+      imageUrl: IMG("photo-1578985545062-69928b1d9587"),
+      category: "food",
+      tags: ["Bestseller"],
+    },
+    {
+      title: "New York Cheesecake",
+      slug: "new-york-cheesecake",
+      description:
+        "Classic creamy New York-style cheesecake with a buttery biscuit base and berry compote.",
+      priceCents: 69900,
+      imageUrl: IMG("photo-1533134242443-d4fd215305ad"),
+      category: "food",
+      tags: ["Bestseller"],
+    },
+    {
+      title: "Classic Tiramisu",
+      slug: "classic-tiramisu",
+      description:
+        "Italian coffee-soaked ladyfingers layered with mascarpone cream and cocoa dust.",
+      priceCents: 79900,
+      imageUrl: IMG("photo-1571877227200-a0d98ea607e9"),
+      category: "food",
+      tags: ["Bestseller"],
+    },
+    // Premium drinks
+    {
+      title: "Mint Margarita",
+      slug: "mint-margarita",
+      description:
+        "Refreshing blend of mint, lemon and soda over crushed ice — the perfect cooler.",
+      priceCents: 44900,
+      imageUrl: IMG("photo-1541544741938-0af808871cc0"),
+      category: "beverages",
+    },
+    {
+      title: "Virgin Mojito",
+      slug: "virgin-mojito",
+      description:
+        "Classic mojito with muddled mint, lime, sugar and soda — zero alcohol, full freshness.",
+      priceCents: 49900,
+      imageUrl: IMG("photo-1546171753-97d7676e4602"),
+      category: "beverages",
+    },
+    {
+      title: "Affogato",
+      slug: "affogato",
+      description:
+        "Double espresso poured over vanilla ice cream — Italy's beloved coffee dessert.",
+      priceCents: 64900,
+      imageUrl: IMG("photo-1572442388796-11668a67e53d"),
+      category: "beverages",
+      tags: ["Bestseller"],
     },
   ];
 
