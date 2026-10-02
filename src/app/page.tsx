@@ -37,10 +37,10 @@ const REVIEWS = [
 ];
 
 const GALLERY = [
-  "photo-1554118811-1e0d58224f24",
-  "photo-1559925393-8be0ec4767c8",
-  "photo-1517248135467-4c7edcad34c4",
-  "photo-1552566626-52f8b828add9",
+  "photo-1414235077428-338989a2e8c0",
+  "photo-1514933651103-005eec06c04b",
+  "photo-1521017432531-fbd92d768814",
+  "photo-1445116572660-236099ec97a0",
 ];
 
 export default function HomePage() {
