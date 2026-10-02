@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { QrCode, Printer, Plus, Minus } from "lucide-react";
-import Image from "next/image";
 
 const SITE_URL = "https://shery-cafe.vercel.app";
 
@@ -56,13 +55,11 @@ export default function TablesPage() {
               className="glass p-4 text-center"
             >
               <p className="mb-2 text-sm font-bold text-gold-400">Table {table}</p>
-              <div className="relative mx-auto h-32 w-32 overflow-hidden rounded-xl bg-white p-1">
-                <Image
+              <div className="mx-auto h-32 w-32 overflow-hidden rounded-xl bg-white p-1">
+                <img
                   src={qrUrl(table)}
                   alt={`QR for Table ${table}`}
-                  fill
-                  className="object-contain"
-                  sizes="128px"
+                  className="h-full w-full object-contain"
                 />
               </div>
               <p className="mt-2 text-xs text-zinc-500">Scan to order</p>
