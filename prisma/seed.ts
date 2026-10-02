@@ -439,7 +439,7 @@ async function main() {
       description:
         "Refreshing blend of mint, lemon and soda over crushed ice — the perfect cooler.",
       priceCents: 44900,
-      imageUrl: IMG("photo-1541544741938-0af808871cc0"),
+      imageUrl: IMG("photo-1514362545857-3bc16c4c7d1b"),
       category: "beverages",
     },
     {
