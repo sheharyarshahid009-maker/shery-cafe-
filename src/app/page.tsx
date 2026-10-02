@@ -12,6 +12,11 @@ import {
   ShoppingBag,
   Star,
   CalendarCheck,
+  Facebook,
+  Instagram,
+  Twitter,
+  Award,
+  Clock,
 } from "lucide-react";
 import Hero from "@/components/Hero";
 import { useEffect, useState } from "react";
@@ -239,61 +244,129 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Owner */}
-      <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6">
-        <div className="glass grid items-center gap-8 overflow-hidden p-6 sm:p-10 md:grid-cols-2">
-          <motion.div
-            initial={{ opacity: 0, x: -24 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="relative h-80 overflow-hidden rounded-2xl border border-gold-500/20 sm:h-96"
-          >
-            <Image
-              src="/owner.jpg"
-              alt="Sheharyar — Owner of Shery Cafe"
-              fill
-              className="object-cover object-[center_25%]"
-              sizes="50vw"
-            />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-950/60 via-transparent to-transparent" />
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: 24 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <p className="text-xs font-semibold uppercase tracking-widest text-gold-500">
-              Meet the owner
-            </p>
-            <h2 className="section-title mt-1">
-              Sheharyar
-            </h2>
-            <p className="mt-4 text-sm leading-relaxed text-zinc-400">
-              The face behind Shery Cafe — built on a simple promise: great
-              taste, unforgettable vibe, and entertainment under one roof.
-              Every cup, every plate, and every game night here carries his
-              personal touch.
-            </p>
-            <div className="mt-6 space-y-3 text-sm">
-              <a
-                href="tel:03396030012"
-                className="flex items-center gap-3 text-zinc-300 transition hover:text-gold-400"
-              >
-                <span className="grid h-9 w-9 place-items-center rounded-full bg-gold-500/15 text-gold-400">
-                  <Phone className="h-4 w-4" />
-                </span>
-                0339 6030012
-              </a>
-              <p className="flex items-center gap-3 text-zinc-300">
-                <span className="grid h-9 w-9 place-items-center rounded-full bg-gold-500/15 text-gold-400">
-                  <MapPin className="h-4 w-4" />
-                </span>
-                Defence Phase VI, Karachi
+      {/* Owner — Premium */}
+      <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6">
+        <div className="glass relative overflow-hidden p-6 sm:p-10">
+          <div className="pointer-events-none absolute -top-24 -right-24 h-64 w-64 rounded-full bg-gold-500/10 blur-3xl" />
+          <div className="pointer-events-none absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-gold-500/10 blur-3xl" />
+          <div className="relative grid items-center gap-10 md:grid-cols-5">
+            <motion.div
+              initial={{ opacity: 0, x: -24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="relative h-80 overflow-hidden rounded-2xl border border-gold-500/30 sm:h-96 md:col-span-2"
+            >
+              <Image
+                src="/owner.jpg"
+                alt="Muhammad Shehryar Khan — Founder of Shery Cafe"
+                fill
+                className="object-cover object-[center_25%]"
+                sizes="40vw"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-950/70 via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4">
+                <p className="text-lg font-bold text-white">Muhammad Shehryar Khan</p>
+                <p className="text-sm text-gold-400">Founder & CEO</p>
+              </div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="md:col-span-3"
+            >
+              <p className="text-xs font-semibold uppercase tracking-widest text-gold-500">
+                Meet the owner
               </p>
-            </div>
-          </motion.div>
+              <h2 className="section-title mt-1">
+                Muhammad Shehryar Khan
+              </h2>
+              <p className="mt-2 text-sm font-medium text-gold-400">
+                Founder & CEO — Shery Cafe
+              </p>
+              <p className="mt-4 text-sm leading-relaxed text-zinc-400">
+                The visionary behind Shery Cafe — built on a simple promise: great
+                taste, unforgettable vibe, and entertainment under one roof.
+                From handpicked coffee beans to the perfect sheesha blend, every
+                detail here carries his personal touch and passion for hospitality.
+              </p>
+              <div className="mt-6 grid grid-cols-2 gap-3 text-sm">
+                <div className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-3">
+                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-gold-500/15 text-gold-400">
+                    <Award className="h-4 w-4" />
+                  </span>
+                  <div>
+                    <p className="font-semibold text-zinc-100">Premium Quality</p>
+                    <p className="text-xs text-zinc-500">Handpicked ingredients</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-3">
+                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-gold-500/15 text-gold-400">
+                    <Clock className="h-4 w-4" />
+                  </span>
+                  <div>
+                    <p className="font-semibold text-zinc-100">Open Daily</p>
+                    <p className="text-xs text-zinc-500">12 PM – 2 AM</p>
+                  </div>
+                </div>
+                <a
+                  href="tel:03396030012"
+                  className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-3 transition hover:border-gold-500/40"
+                >
+                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-gold-500/15 text-gold-400">
+                    <Phone className="h-4 w-4" />
+                  </span>
+                  <div>
+                    <p className="font-semibold text-zinc-100">0339 6030012</p>
+                    <p className="text-xs text-zinc-500">Call us</p>
+                  </div>
+                </a>
+                <div className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-3">
+                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-gold-500/15 text-gold-400">
+                    <MapPin className="h-4 w-4" />
+                  </span>
+                  <div>
+                    <p className="font-semibold text-zinc-100">Defence Phase VI</p>
+                    <p className="text-xs text-zinc-500">Karachi</p>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-6 flex items-center gap-3">
+                <span className="text-xs font-semibold uppercase tracking-widest text-zinc-500">
+                  Follow
+                </span>
+                <a
+                  href="https://facebook.com/muhammadshehryarkhan"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook"
+                  className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5 text-zinc-300 transition hover:border-gold-500/50 hover:text-gold-400"
+                >
+                  <Facebook className="h-4 w-4" />
+                </a>
+                <a
+                  href="https://instagram.com/sherrry_10"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5 text-zinc-300 transition hover:border-gold-500/50 hover:text-gold-400"
+                >
+                  <Instagram className="h-4 w-4" />
+                </a>
+                <a
+                  href="https://twitter.com/sherrry_10"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Twitter"
+                  className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5 text-zinc-300 transition hover:border-gold-500/50 hover:text-gold-400"
+                >
+                  <Twitter className="h-4 w-4" />
+                </a>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
