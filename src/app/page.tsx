@@ -37,16 +37,16 @@ const REVIEWS = [
 ];
 
 const GALLERY = [
-  "photo-1414235077428-338989a2e8c0",
-  "photo-1514933651103-005eec06c04b",
-  "photo-1521017432531-fbd92d768814",
-  "photo-1445116572660-236099ec97a0",
+  "/cafe1.jpg",
+  "/cafe2.jpg",
+  "/cafe3.jpg",
+  "/cafe4.jpg",
 ];
 
 const GAMING = [
   { label: "PS5", desc: "Latest titles on 4K setup", id: "photo-1606813907291-d86efa9b94db" },
   { label: "VR", desc: "Immersive virtual reality", id: "photo-1622979135225-d2ba269cf1ac" },
-  { label: "Snooker", desc: "Pro tables, hourly rates", id: "photo-1533106418989-88406c7cc8ca" },
+  { label: "Snooker", desc: "Pro tables, hourly rates", id: "/snooker.jpg" },
   { label: "Arcade", desc: "Classic arcade machines", id: "photo-1511882150382-421056c89033" },
 ];
 
@@ -159,7 +159,7 @@ export default function HomePage() {
                 className="group relative h-52 overflow-hidden rounded-2xl border border-white/10 md:h-64"
               >
                 <Image
-                  src={`https://images.unsplash.com/${g.id}?auto=format&fit=crop&w=600&q=80`}
+                  src={g.id.startsWith("/") ? g.id : `https://images.unsplash.com/${g.id}?auto=format&fit=crop&w=600&q=80`}
                   alt={g.label}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -228,7 +228,7 @@ export default function HomePage() {
               className="relative h-44 overflow-hidden rounded-2xl border border-white/10 md:h-56"
             >
               <Image
-                src={`https://images.unsplash.com/${id}?auto=format&fit=crop&w=700&q=80`}
+                src={id.startsWith("/") ? id : `https://images.unsplash.com/${id}?auto=format&fit=crop&w=700&q=80`}
                 alt="Shery Cafe atmosphere"
                 fill
                 className="object-cover transition-transform duration-500 hover:scale-105"
