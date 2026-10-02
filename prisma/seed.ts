@@ -270,7 +270,7 @@ async function main() {
       description:
         "Classic double-apple premium tobacco with ice base and fresh mint. Strictly 18+.",
       priceCents: 149900,
-      imageUrl: IMG("photo-1527661591475-527312dd65f5"),
+      imageUrl: "/sheesha.jpg",
       category: "sheesha",
       isAgeRestricted: true,
       tags: ["Bestseller"],
@@ -292,7 +292,7 @@ async function main() {
       description:
         "Our signature blue mist + mint + ice blend for extra smooth clouds. Strictly 18+.",
       priceCents: 169900,
-      imageUrl: IMG("photo-1519671482749-fd09be7ccebf"),
+      imageUrl: "/sheesha.jpg",
       category: "sheesha",
       isAgeRestricted: true,
       tags: ["Chef Special"],
@@ -323,7 +323,7 @@ async function main() {
       description:
         "Full-size snooker table booking for one hour, cues and chalk included.",
       priceCents: 59900,
-      imageUrl: IMG("photo-1533106418989-88406c7cc8ca"),
+      imageUrl: "/snooker.jpg",
       category: "play-area",
     },
     {
