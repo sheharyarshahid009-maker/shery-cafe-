@@ -143,9 +143,7 @@ export default function HomePage() {
             <p className="text-xs font-semibold uppercase tracking-widest text-gold-500">
               Gaming & Play Area
             </p>
-            <h2 className="section-title mt-1">
-              PS5 · VR · Snooker · Arcade
-            </h2>
+            <h2 className="section-title mt-1">PS5 · VR · Snooker · Arcade</h2>
             <p className="mx-auto mt-3 max-w-2xl text-zinc-400">
               Hourly bookings, VR sessions and combo food + gaming packages —
               reserve your slot and skip the wait.
@@ -187,7 +185,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Party banner — prominent */}
+      {/* Party banner */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -202,9 +200,7 @@ export default function HomePage() {
               <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-gold-500">
                 <PartyPopper className="h-4 w-4" /> Events & Celebrations
               </p>
-              <h2 className="section-title mt-2">
-                We Host Parties Too! 🎉
-              </h2>
+              <h2 className="section-title mt-2">We Host Parties Too! 🎉</h2>
               <p className="mt-3 max-w-xl text-sm text-zinc-400">
                 Birthdays, anniversaries, corporate events, farewells — celebrate
                 with food, sheesha, PS5, VR and music, all under one roof!
@@ -217,11 +213,36 @@ export default function HomePage() {
         </motion.div>
       </section>
 
+      {/* Upcoming Events teaser */}
+      <section className="mx-auto max-w-7xl px-4 sm:px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="relative overflow-hidden rounded-3xl border border-white/10 bg-ink-900/60 p-8 sm:p-10"
+        >
+          <div className="relative flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
+            <div>
+              <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-gold-500">
+                <CalendarCheck className="h-4 w-4" /> What's On
+              </p>
+              <h2 className="section-title mt-2">Upcoming Events 📅</h2>
+              <p className="mt-3 max-w-xl text-sm text-zinc-400">
+                Live music nights, karaoke, PS5 tournaments and Sufi nights —
+                there's always something happening at Shery Cafe!
+              </p>
+            </div>
+            <Link href="/events" className="btn-gold shrink-0">
+              <CalendarCheck className="h-5 w-5" /> View All Events
+            </Link>
+          </div>
+        </motion.div>
+      </section>
+
       {/* Reviews */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
-        <p className="text-xs font-semibold uppercase tracking-widest text-gold-500">
-          Reviews
-        </p>
+        <p className="text-xs font-semibold uppercase tracking-widest text-gold-500">Reviews</p>
         <h2 className="section-title mt-1">Loved by our guests</h2>
         <div className="mt-8 grid gap-5 md:grid-cols-3">
           {REVIEWS.map((r, i) => (
@@ -241,11 +262,7 @@ export default function HomePage() {
                   {Array.from({ length: 5 }).map((_, s) => (
                     <Star
                       key={s}
-                      className={`h-3.5 w-3.5 ${
-                        s < r.rating
-                          ? "fill-gold-400 text-gold-400"
-                          : "text-zinc-700"
-                      }`}
+                      className={`h-3.5 w-3.5 ${s < r.rating ? "fill-gold-400 text-gold-400" : "text-zinc-700"}`}
                     />
                   ))}
                 </span>
@@ -280,7 +297,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Owner — Premium */}
+      {/* Owner */}
       <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6">
         <div className="glass relative overflow-hidden p-6 sm:p-10">
           <div className="pointer-events-none absolute -top-24 -right-24 h-64 w-64 rounded-full bg-gold-500/10 blur-3xl" />
@@ -313,15 +330,9 @@ export default function HomePage() {
               transition={{ duration: 0.5 }}
               className="md:col-span-3"
             >
-              <p className="text-xs font-semibold uppercase tracking-widest text-gold-500">
-                Meet the owner
-              </p>
-              <h2 className="section-title mt-1">
-                Muhammad Shehryar Khan
-              </h2>
-              <p className="mt-2 text-sm font-medium text-gold-400">
-                Founder & CEO — Shery Cafe
-              </p>
+              <p className="text-xs font-semibold uppercase tracking-widest text-gold-500">Meet the owner</p>
+              <h2 className="section-title mt-1">Muhammad Shehryar Khan</h2>
+              <p className="mt-2 text-sm font-medium text-gold-400">Founder & CEO — Shery Cafe</p>
               <p className="mt-4 text-sm leading-relaxed text-zinc-400">
                 The visionary behind Shery Cafe — built on a simple promise: great
                 taste, unforgettable vibe, and entertainment under one roof.
@@ -370,9 +381,7 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="mt-6 flex items-center gap-3">
-                <span className="text-xs font-semibold uppercase tracking-widest text-zinc-500">
-                  Follow
-                </span>
+                <span className="text-xs font-semibold uppercase tracking-widest text-zinc-500">Follow</span>
                 <a
                   href="https://facebook.com/muhammadshehryarkhan"
                   target="_blank"
@@ -428,9 +437,7 @@ export default function HomePage() {
           <div>
             <p className="label">Quick links</p>
             <div className="flex flex-col gap-1 text-sm">
-              <Link href="/menu" className="text-zinc-400 hover:text-gold-400">
-                Menu
-              </Link>
+              <Link href="/menu" className="text-zinc-400 hover:text-gold-400">Menu</Link>
               <Link href="/book" className="text-zinc-400 hover:text-gold-400">
                 <span className="inline-flex items-center gap-1.5">
                   <CalendarCheck className="h-3.5 w-3.5" /> Reserve a table
@@ -439,6 +446,11 @@ export default function HomePage() {
               <Link href="/party" className="text-zinc-400 hover:text-gold-400">
                 <span className="inline-flex items-center gap-1.5">
                   <PartyPopper className="h-3.5 w-3.5" /> Book a party
+                </span>
+              </Link>
+              <Link href="/events" className="text-zinc-400 hover:text-gold-400">
+                <span className="inline-flex items-center gap-1.5">
+                  <CalendarCheck className="h-3.5 w-3.5" /> Upcoming events
                 </span>
               </Link>
               <Link href="/admin/login" className="text-zinc-500 hover:text-gold-400">
