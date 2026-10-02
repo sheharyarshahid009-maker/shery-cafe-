@@ -334,7 +334,7 @@ async function main() {
       priceCents: 119900,
       imageUrl: IMG("photo-1550745165-9bc0b252726f"),
       category: "play-area",
-      tags: ["Chef Special"],
+      tags: ["Popular"],
     },
   ];
 
