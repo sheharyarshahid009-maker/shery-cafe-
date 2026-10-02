@@ -299,7 +299,7 @@ export default function HomePage() {
                   </span>
                   <div>
                     <p className="font-semibold text-zinc-100">Premium Quality</p>
-                    <p className="text-xs text-zinc-500">Handpicked ingredients</p>
+                    <p className="text-xs text-zinc-500">Best ingredients</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-3">
