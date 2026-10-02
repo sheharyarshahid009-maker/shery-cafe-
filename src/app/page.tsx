@@ -18,6 +18,7 @@ import {
   Award,
   Clock,
   PartyPopper,
+  Camera,
 } from "lucide-react";
 import Hero from "@/components/Hero";
 import { useEffect, useState } from "react";
@@ -42,12 +43,7 @@ const REVIEWS = [
   },
 ];
 
-const GALLERY = [
-  "/cafe1.jpg",
-  "/cafe2.jpg",
-  "/cafe3.jpg",
-  "/cafe4.jpg",
-];
+const GALLERY = ["/cafe1.jpg", "/cafe2.jpg", "/cafe3.jpg", "/cafe4.jpg"];
 
 const GAMING = [
   { label: "PS5", desc: "Latest titles on 4K setup", id: "photo-1606813907291-d86efa9b94db" },
@@ -81,9 +77,7 @@ export default function HomePage() {
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
         <div className="mb-8 flex items-end justify-between">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-gold-500">
-              Customer favourites
-            </p>
+            <p className="text-xs font-semibold uppercase tracking-widest text-gold-500">Customer favourites</p>
             <h2 className="section-title mt-1">Bestsellers & Chef Specials</h2>
           </div>
           <Link href="/menu" className="btn-ghost hidden sm:inline-flex">
@@ -102,27 +96,14 @@ export default function HomePage() {
             >
               {item.imageUrl && (
                 <div className="relative h-40">
-                  <Image
-                    src={item.imageUrl}
-                    alt={item.title}
-                    fill
-                    className="object-cover"
-                    sizes="25vw"
-                  />
+                  <Image src={item.imageUrl} alt={item.title} fill className="object-cover" sizes="25vw" />
                 </div>
               )}
               <div className="p-4">
                 <p className="font-semibold text-zinc-50">{item.title}</p>
                 <div className="mt-2 flex items-center justify-between">
-                  <span className="font-bold text-gold-400">
-                    {formatPKR(item.priceCents)}
-                  </span>
-                  <Link
-                    href="/menu"
-                    className="text-sm font-semibold text-gold-400 hover:underline"
-                  >
-                    Order
-                  </Link>
+                  <span className="font-bold text-gold-400">{formatPKR(item.priceCents)}</span>
+                  <Link href="/menu" className="text-sm font-semibold text-gold-400 hover:underline">Order</Link>
                 </div>
               </div>
             </motion.div>
@@ -140,21 +121,14 @@ export default function HomePage() {
             transition={{ duration: 0.5 }}
             className="text-center"
           >
-            <p className="text-xs font-semibold uppercase tracking-widest text-gold-500">
-              Gaming & Play Area
-            </p>
+            <p className="text-xs font-semibold uppercase tracking-widest text-gold-500">Gaming & Play Area</p>
             <h2 className="section-title mt-1">PS5 · VR · Snooker · Arcade</h2>
             <p className="mx-auto mt-3 max-w-2xl text-zinc-400">
-              Hourly bookings, VR sessions and combo food + gaming packages —
-              reserve your slot and skip the wait.
+              Hourly bookings, VR sessions and combo food + gaming packages — reserve your slot and skip the wait.
             </p>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-              <Link href="/book" className="btn-gold">
-                <Gamepad2 className="h-5 w-5" /> Book a Slot
-              </Link>
-              <Link href="/party" className="btn-ghost">
-                <PartyPopper className="h-5 w-5" /> Book Your Party
-              </Link>
+              <Link href="/book" className="btn-gold"><Gamepad2 className="h-5 w-5" /> Book a Slot</Link>
+              <Link href="/party" className="btn-ghost"><PartyPopper className="h-5 w-5" /> Book Your Party</Link>
             </div>
           </motion.div>
           <div className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-4">
@@ -202,13 +176,10 @@ export default function HomePage() {
               </p>
               <h2 className="section-title mt-2">We Host Parties Too! 🎉</h2>
               <p className="mt-3 max-w-xl text-sm text-zinc-400">
-                Birthdays, anniversaries, corporate events, farewells — celebrate
-                with food, sheesha, PS5, VR and music, all under one roof!
+                Birthdays, anniversaries, corporate events, farewells — celebrate with food, sheesha, PS5, VR and music, all under one roof!
               </p>
             </div>
-            <Link href="/party" className="btn-gold shrink-0">
-              <PartyPopper className="h-5 w-5" /> Book Your Party
-            </Link>
+            <Link href="/party" className="btn-gold shrink-0"><PartyPopper className="h-5 w-5" /> Book Your Party</Link>
           </div>
         </motion.div>
       </section>
@@ -229,13 +200,34 @@ export default function HomePage() {
               </p>
               <h2 className="section-title mt-2">Upcoming Events 📅</h2>
               <p className="mt-3 max-w-xl text-sm text-zinc-400">
-                Live music nights, karaoke, PS5 tournaments and Sufi nights —
-                there's always something happening at Shery Cafe!
+                Live music nights, karaoke, PS5 tournaments and Sufi nights — there's always something happening at Shery Cafe!
               </p>
             </div>
-            <Link href="/events" className="btn-gold shrink-0">
-              <CalendarCheck className="h-5 w-5" /> View All Events
-            </Link>
+            <Link href="/events" className="btn-gold shrink-0"><CalendarCheck className="h-5 w-5" /> View All Events</Link>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Customer Photos teaser */}
+      <section className="mx-auto max-w-7xl px-4 sm:px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="relative overflow-hidden rounded-3xl border border-white/10 bg-ink-900/60 p-8 sm:p-10"
+        >
+          <div className="relative flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
+            <div>
+              <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-gold-500">
+                <Camera className="h-4 w-4" /> Community
+              </p>
+              <h2 className="section-title mt-2">Customer Photos 📸</h2>
+              <p className="mt-3 max-w-xl text-sm text-zinc-400">
+                Real moments from real guests — share your food photos and get featured on our wall of fame!
+              </p>
+            </div>
+            <Link href="/gallery" className="btn-gold shrink-0"><Camera className="h-5 w-5" /> View Gallery</Link>
           </div>
         </motion.div>
       </section>
@@ -260,10 +252,7 @@ export default function HomePage() {
                 <span className="text-sm font-semibold text-zinc-100">{r.name}</span>
                 <span className="flex gap-0.5">
                   {Array.from({ length: 5 }).map((_, s) => (
-                    <Star
-                      key={s}
-                      className={`h-3.5 w-3.5 ${s < r.rating ? "fill-gold-400 text-gold-400" : "text-zinc-700"}`}
-                    />
+                    <Star key={s} className={`h-3.5 w-3.5 ${s < r.rating ? "fill-gold-400 text-gold-400" : "text-zinc-700"}`} />
                   ))}
                 </span>
               </figcaption>
@@ -310,13 +299,7 @@ export default function HomePage() {
               transition={{ duration: 0.5 }}
               className="relative h-80 overflow-hidden rounded-2xl border border-gold-500/30 sm:h-96 md:col-span-2"
             >
-              <Image
-                src="/owner.jpg"
-                alt="Muhammad Shehryar Khan — Founder of Shery Cafe"
-                fill
-                className="object-cover object-[center_25%]"
-                sizes="40vw"
-              />
+              <Image src="/owner.jpg" alt="Muhammad Shehryar Khan — Founder of Shery Cafe" fill className="object-cover object-[center_25%]" sizes="40vw" />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-950/70 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
                 <p className="text-lg font-bold text-white">Muhammad Shehryar Khan</p>
@@ -334,46 +317,33 @@ export default function HomePage() {
               <h2 className="section-title mt-1">Muhammad Shehryar Khan</h2>
               <p className="mt-2 text-sm font-medium text-gold-400">Founder & CEO — Shery Cafe</p>
               <p className="mt-4 text-sm leading-relaxed text-zinc-400">
-                The visionary behind Shery Cafe — built on a simple promise: great
-                taste, unforgettable vibe, and entertainment under one roof.
-                From handpicked coffee beans to the perfect sheesha blend, every
-                detail here carries his personal touch and passion for hospitality.
+                The visionary behind Shery Cafe — built on a simple promise: great taste, unforgettable vibe, and entertainment under one roof.
+                From handpicked coffee beans to the perfect sheesha blend, every detail here carries his personal touch and passion for hospitality.
               </p>
               <div className="mt-6 grid grid-cols-2 gap-3 text-sm">
                 <div className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-3">
-                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-gold-500/15 text-gold-400">
-                    <Award className="h-4 w-4" />
-                  </span>
+                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-gold-500/15 text-gold-400"><Award className="h-4 w-4" /></span>
                   <div className="min-w-0">
                     <p className="truncate font-semibold text-zinc-100">Premium Quality</p>
                     <p className="truncate text-xs text-zinc-500">Best ingredients</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-3">
-                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-gold-500/15 text-gold-400">
-                    <Clock className="h-4 w-4" />
-                  </span>
+                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-gold-500/15 text-gold-400"><Clock className="h-4 w-4" /></span>
                   <div>
                     <p className="font-semibold text-zinc-100">Open Daily</p>
                     <p className="text-xs text-zinc-500">12 PM – 2 AM</p>
                   </div>
                 </div>
-                <a
-                  href="tel:03396030012"
-                  className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-3 transition hover:border-gold-500/40"
-                >
-                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-gold-500/15 text-gold-400">
-                    <Phone className="h-4 w-4" />
-                  </span>
+                <a href="tel:03396030012" className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-3 transition hover:border-gold-500/40">
+                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-gold-500/15 text-gold-400"><Phone className="h-4 w-4" /></span>
                   <div>
                     <p className="font-semibold text-zinc-100">0339 6030012</p>
                     <p className="text-xs text-zinc-500">Call us</p>
                   </div>
                 </a>
                 <div className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-3">
-                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-gold-500/15 text-gold-400">
-                    <MapPin className="h-4 w-4" />
-                  </span>
+                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-gold-500/15 text-gold-400"><MapPin className="h-4 w-4" /></span>
                   <div>
                     <p className="font-semibold text-zinc-100">Defence Phase VI</p>
                     <p className="text-xs text-zinc-500">Karachi</p>
@@ -382,33 +352,9 @@ export default function HomePage() {
               </div>
               <div className="mt-6 flex items-center gap-3">
                 <span className="text-xs font-semibold uppercase tracking-widest text-zinc-500">Follow</span>
-                <a
-                  href="https://facebook.com/muhammadshehryarkhan"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Facebook"
-                  className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5 text-zinc-300 transition hover:border-gold-500/50 hover:text-gold-400"
-                >
-                  <Facebook className="h-4 w-4" />
-                </a>
-                <a
-                  href="https://instagram.com/sherrry_10"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram"
-                  className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5 text-zinc-300 transition hover:border-gold-500/50 hover:text-gold-400"
-                >
-                  <Instagram className="h-4 w-4" />
-                </a>
-                <a
-                  href="https://twitter.com/sherrry_10"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Twitter"
-                  className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5 text-zinc-300 transition hover:border-gold-500/50 hover:text-gold-400"
-                >
-                  <Twitter className="h-4 w-4" />
-                </a>
+                <a href="https://facebook.com/muhammadshehryarkhan" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5 text-zinc-300 transition hover:border-gold-500/50 hover:text-gold-400"><Facebook className="h-4 w-4" /></a>
+                <a href="https://instagram.com/sherrry_10" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5 text-zinc-300 transition hover:border-gold-500/50 hover:text-gold-400"><Instagram className="h-4 w-4" /></a>
+                <a href="https://twitter.com/sherrry_10" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5 text-zinc-300 transition hover:border-gold-500/50 hover:text-gold-400"><Twitter className="h-4 w-4" /></a>
               </div>
             </motion.div>
           </div>
@@ -419,44 +365,31 @@ export default function HomePage() {
       <footer className="border-t border-white/10 bg-ink-900/70">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-3">
           <div>
-            <p className="font-display text-xl font-bold">
-              Shery <span className="gold-text">Cafe</span>
-            </p>
-            <p className="mt-2 text-sm text-zinc-400">
-              Taste, Vibe & Entertainment. Open daily 12 PM – 2 AM.
-            </p>
+            <p className="font-display text-xl font-bold">Shery <span className="gold-text">Cafe</span></p>
+            <p className="mt-2 text-sm text-zinc-400">Taste, Vibe & Entertainment. Open daily 12 PM – 2 AM.</p>
           </div>
           <div>
             <p className="label">Visit</p>
-            <p className="text-sm text-zinc-400">
-              Defence Phase VI, Karachi
-              <br />
-              0339 6030012
-            </p>
+            <p className="text-sm text-zinc-400">Defence Phase VI, Karachi<br />0339 6030012</p>
           </div>
           <div>
             <p className="label">Quick links</p>
             <div className="flex flex-col gap-1 text-sm">
               <Link href="/menu" className="text-zinc-400 hover:text-gold-400">Menu</Link>
               <Link href="/book" className="text-zinc-400 hover:text-gold-400">
-                <span className="inline-flex items-center gap-1.5">
-                  <CalendarCheck className="h-3.5 w-3.5" /> Reserve a table
-                </span>
+                <span className="inline-flex items-center gap-1.5"><CalendarCheck className="h-3.5 w-3.5" /> Reserve a table</span>
               </Link>
               <Link href="/party" className="text-zinc-400 hover:text-gold-400">
-                <span className="inline-flex items-center gap-1.5">
-                  <PartyPopper className="h-3.5 w-3.5" /> Book a party
-                </span>
+                <span className="inline-flex items-center gap-1.5"><PartyPopper className="h-3.5 w-3.5" /> Book a party</span>
               </Link>
               <Link href="/events" className="text-zinc-400 hover:text-gold-400">
-                <span className="inline-flex items-center gap-1.5">
-                  <CalendarCheck className="h-3.5 w-3.5" /> Upcoming events
-                </span>
+                <span className="inline-flex items-center gap-1.5"><CalendarCheck className="h-3.5 w-3.5" /> Upcoming events</span>
+              </Link>
+              <Link href="/gallery" className="text-zinc-400 hover:text-gold-400">
+                <span className="inline-flex items-center gap-1.5"><Camera className="h-3.5 w-3.5" /> Customer photos</span>
               </Link>
               <Link href="/admin/login" className="text-zinc-500 hover:text-gold-400">
-                <span className="inline-flex items-center gap-1.5">
-                  <Coffee className="h-3.5 w-3.5" /> Admin
-                </span>
+                <span className="inline-flex items-center gap-1.5"><Coffee className="h-3.5 w-3.5" /> Admin</span>
               </Link>
             </div>
           </div>
