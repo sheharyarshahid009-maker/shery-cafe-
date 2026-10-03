@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import {
   Coffee, Gamepad2, MapPin, Phone, Quote, ShoppingBag, Star,
   CalendarCheck, Facebook, Instagram, Twitter, Award, Clock,
-  PartyPopper, Camera, QrCode, Gift, PackageSearch, RotateCw,
+  PartyPopper, Camera, QrCode, Gift, PackageSearch, RotateCw, Music,
 } from "lucide-react";
 import Hero from "@/components/Hero";
 import { useEffect, useState } from "react";
@@ -24,6 +24,34 @@ const GAMING = [
   { label: "VR", desc: "Immersive virtual reality", id: "photo-1622979135225-d2ba269cf1ac" },
   { label: "Snooker", desc: "Pro tables, hourly rates", id: "/snooker.jpg" },
   { label: "Arcade", desc: "Classic arcade machines", id: "photo-1511882150382-421056c89033" },
+];
+
+const TEASERS = [
+  { icon: "PartyPopper", kicker: "Events & Celebrations", title: "We Host Parties Too! 🎉", desc: "Birthdays, anniversaries, corporate events, farewells — celebrate with food, sheesha, PS5, VR and music, all under one roof!", href: "/party", btn: "Book Your Party", gold: true },
+  { icon: "CalendarCheck", kicker: "What's On", title: "Upcoming Events 📅", desc: "Live music nights, karaoke, PS5 tournaments and Sufi nights — there's always something happening at Shery Cafe!", href: "/events", btn: "View All Events", gold: false },
+  { icon: "Camera", kicker: "Community", title: "Customer Photos 📸", desc: "Real moments from real guests — share your food photos and get featured on our wall of fame!", href: "/gallery", btn: "View Gallery", gold: false },
+  { icon: "Gift", kicker: "Give The Gift Of Taste", title: "Gift Cards 🎁", desc: "Perfect for birthdays and celebrations — give your loved ones the Shery Cafe experience!", href: "/gift-cards", btn: "Buy Gift Card", gold: true },
+  { icon: "PackageSearch", kicker: "Live Updates", title: "Track Your Order 📦", desc: "Apna order live track karein — kab ban raha hai, kab ready hoga, sab pata chalega!", href: "/track", btn: "Track Order", gold: false },
+  { icon: "Star", kicker: "Rewards Program", title: "Shery Rewards ⭐", desc: "Jitna khao, utne points! Free food, discounts aur VIP perks pao!", href: "/loyalty", btn: "Join Free", gold: true },
+  { icon: "RotateCw", kicker: "Daily Fun", title: "Spin & Win 🎡", desc: "Roz ek free spin! Discounts aur free items jeeto!", href: "/spin", btn: "Spin Now", gold: true },
+  { icon: "Music", kicker: "Your Playlist", title: "Request a Song 🎵", desc: "Apna favourite gaana cafe me bajwao!", href: "/song-request", btn: "Request Song", gold: false },
+];
+
+const ICONS: Record<string, any> = { PartyPopper, CalendarCheck, Camera, Gift, PackageSearch, Star, RotateCw, Music };
+
+const FOOT_LINKS = [
+  { href: "/menu", label: "Menu", icon: null },
+  { href: "/book", label: "Reserve a table", icon: CalendarCheck },
+  { href: "/party", label: "Book a party", icon: PartyPopper },
+  { href: "/events", label: "Upcoming events", icon: CalendarCheck },
+  { href: "/gallery", label: "Customer photos", icon: Camera },
+  { href: "/gift-cards", label: "Gift cards", icon: Gift },
+  { href: "/track", label: "Track order", icon: PackageSearch },
+  { href: "/loyalty", label: "Shery Rewards", icon: Star },
+  { href: "/spin", label: "Spin & Win", icon: RotateCw },
+  { href: "/song-request", label: "Request a song", icon: Music },
+  { href: "/tables", label: "Table QR codes", icon: QrCode, dim: true },
+  { href: "/admin/login", label: "Admin", icon: Coffee, dim: true },
 ];
 
 export default function HomePage() {
@@ -82,91 +110,23 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      <section className="mx-auto max-w-7xl px-4 sm:px-6">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="relative overflow-hidden rounded-3xl border border-gold-500/30 bg-gradient-to-r from-gold-500/15 via-gold-500/5 to-transparent p-8 sm:p-12">
-          <div className="pointer-events-none absolute -top-20 -right-20 h-56 w-56 rounded-full bg-gold-500/20 blur-3xl" />
-          <div className="relative flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
-            <div>
-              <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-gold-500"><PartyPopper className="h-4 w-4" /> Events & Celebrations</p>
-              <h2 className="section-title mt-2">We Host Parties Too! 🎉</h2>
-              <p className="mt-3 max-w-xl text-sm text-zinc-400">Birthdays, anniversaries, corporate events, farewells — celebrate with food, sheesha, PS5, VR and music, all under one roof!</p>
-            </div>
-            <Link href="/party" className="btn-gold shrink-0"><PartyPopper className="h-5 w-5" /> Book Your Party</Link>
-          </div>
-        </motion.div>
-      </section>
-      <section className="mx-auto max-w-7xl px-4 sm:px-6">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="relative overflow-hidden rounded-3xl border border-white/10 bg-ink-900/60 p-8 sm:p-10">
-          <div className="relative flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
-            <div>
-              <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-gold-500"><CalendarCheck className="h-4 w-4" /> What's On</p>
-              <h2 className="section-title mt-2">Upcoming Events 📅</h2>
-              <p className="mt-3 max-w-xl text-sm text-zinc-400">Live music nights, karaoke, PS5 tournaments and Sufi nights — there's always something happening at Shery Cafe!</p>
-            </div>
-            <Link href="/events" className="btn-gold shrink-0"><CalendarCheck className="h-5 w-5" /> View All Events</Link>
-          </div>
-        </motion.div>
-      </section>
-      <section className="mx-auto max-w-7xl px-4 sm:px-6">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="relative overflow-hidden rounded-3xl border border-white/10 bg-ink-900/60 p-8 sm:p-10">
-          <div className="relative flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
-            <div>
-              <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-gold-500"><Camera className="h-4 w-4" /> Community</p>
-              <h2 className="section-title mt-2">Customer Photos 📸</h2>
-              <p className="mt-3 max-w-xl text-sm text-zinc-400">Real moments from real guests — share your food photos and get featured on our wall of fame!</p>
-            </div>
-            <Link href="/gallery" className="btn-gold shrink-0"><Camera className="h-5 w-5" /> View Gallery</Link>
-          </div>
-        </motion.div>
-      </section>
-      <section className="mx-auto max-w-7xl px-4 sm:px-6">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="relative overflow-hidden rounded-3xl border border-gold-500/30 bg-gradient-to-r from-gold-500/15 via-gold-500/5 to-transparent p-8 sm:p-10">
-          <div className="relative flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
-            <div>
-              <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-gold-500"><Gift className="h-4 w-4" /> Give The Gift Of Taste</p>
-              <h2 className="section-title mt-2">Gift Cards 🎁</h2>
-              <p className="mt-3 max-w-xl text-sm text-zinc-400">Perfect for birthdays and celebrations — give your loved ones the Shery Cafe experience!</p>
-            </div>
-            <Link href="/gift-cards" className="btn-gold shrink-0"><Gift className="h-5 w-5" /> Buy Gift Card</Link>
-          </div>
-        </motion.div>
-      </section>
-      <section className="mx-auto max-w-7xl px-4 sm:px-6">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="relative overflow-hidden rounded-3xl border border-white/10 bg-ink-900/60 p-8 sm:p-10">
-          <div className="relative flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
-            <div>
-              <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-gold-500"><PackageSearch className="h-4 w-4" /> Live Updates</p>
-              <h2 className="section-title mt-2">Track Your Order 📦</h2>
-              <p className="mt-3 max-w-xl text-sm text-zinc-400">Apna order live track karein — kab ban raha hai, kab ready hoga, sab pata chalega!</p>
-            </div>
-            <Link href="/track" className="btn-gold shrink-0"><PackageSearch className="h-5 w-5" /> Track Order</Link>
-          </div>
-        </motion.div>
-      </section>
-      <section className="mx-auto max-w-7xl px-4 sm:px-6">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="relative overflow-hidden rounded-3xl border border-gold-500/30 bg-gradient-to-r from-gold-500/15 via-gold-500/5 to-transparent p-8 sm:p-10">
-          <div className="relative flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
-            <div>
-              <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-gold-500"><Star className="h-4 w-4" /> Rewards Program</p>
-              <h2 className="section-title mt-2">Shery Rewards ⭐</h2>
-              <p className="mt-3 max-w-xl text-sm text-zinc-400">Jitna khao, utne points! Free food, discounts aur VIP perks pao!</p>
-            </div>
-            <Link href="/loyalty" className="btn-gold shrink-0"><Star className="h-5 w-5" /> Join Free</Link>
-          </div>
-        </motion.div>
-      </section>
-      <section className="mx-auto max-w-7xl px-4 sm:px-6">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="relative overflow-hidden rounded-3xl border border-gold-500/30 bg-gradient-to-r from-gold-500/15 via-gold-500/5 to-transparent p-8 sm:p-10">
-          <div className="relative flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
-            <div>
-              <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-gold-500"><RotateCw className="h-4 w-4" /> Daily Fun</p>
-              <h2 className="section-title mt-2">Spin & Win 🎡</h2>
-              <p className="mt-3 max-w-xl text-sm text-zinc-400">Roz ek free spin! Discounts aur free items jeeto!</p>
-            </div>
-            <Link href="/spin" className="btn-gold shrink-0"><RotateCw className="h-5 w-5" /> Spin Now</Link>
-          </div>
-        </motion.div>
-      </section>
+      {TEASERS.map((t) => {
+        const Icon = ICONS[t.icon];
+        return (
+          <section key={t.href} className="mx-auto max-w-7xl px-4 sm:px-6">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className={`relative overflow-hidden rounded-3xl border p-8 sm:p-10 ${t.gold ? "border-gold-500/30 bg-gradient-to-r from-gold-500/15 via-gold-500/5 to-transparent" : "border-white/10 bg-ink-900/60"}`}>
+              <div className="relative flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
+                <div>
+                  <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-gold-500"><Icon className="h-4 w-4" /> {t.kicker}</p>
+                  <h2 className="section-title mt-2">{t.title}</h2>
+                  <p className="mt-3 max-w-xl text-sm text-zinc-400">{t.desc}</p>
+                </div>
+                <Link href={t.href} className="btn-gold shrink-0"><Icon className="h-5 w-5" /> {t.btn}</Link>
+              </div>
+            </motion.div>
+          </section>
+        );
+      })}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
         <p className="text-xs font-semibold uppercase tracking-widest text-gold-500">Reviews</p>
         <h2 className="section-title mt-1">Loved by our guests</h2>
@@ -234,17 +194,14 @@ export default function HomePage() {
           <div>
             <p className="label">Quick links</p>
             <div className="flex flex-col gap-1 text-sm">
-              <Link href="/menu" className="text-zinc-400 hover:text-gold-400">Menu</Link>
-              <Link href="/book" className="text-zinc-400 hover:text-gold-400"><span className="inline-flex items-center gap-1.5"><CalendarCheck className="h-3.5 w-3.5" /> Reserve a table</span></Link>
-              <Link href="/party" className="text-zinc-400 hover:text-gold-400"><span className="inline-flex items-center gap-1.5"><PartyPopper className="h-3.5 w-3.5" /> Book a party</span></Link>
-              <Link href="/events" className="text-zinc-400 hover:text-gold-400"><span className="inline-flex items-center gap-1.5"><CalendarCheck className="h-3.5 w-3.5" /> Upcoming events</span></Link>
-              <Link href="/gallery" className="text-zinc-400 hover:text-gold-400"><span className="inline-flex items-center gap-1.5"><Camera className="h-3.5 w-3.5" /> Customer photos</span></Link>
-              <Link href="/gift-cards" className="text-zinc-400 hover:text-gold-400"><span className="inline-flex items-center gap-1.5"><Gift className="h-3.5 w-3.5" /> Gift cards</span></Link>
-              <Link href="/track" className="text-zinc-400 hover:text-gold-400"><span className="inline-flex items-center gap-1.5"><PackageSearch className="h-3.5 w-3.5" /> Track order</span></Link>
-              <Link href="/loyalty" className="text-zinc-400 hover:text-gold-400"><span className="inline-flex items-center gap-1.5"><Star className="h-3.5 w-3.5" /> Shery Rewards</span></Link>
-              <Link href="/spin" className="text-zinc-400 hover:text-gold-400"><span className="inline-flex items-center gap-1.5"><RotateCw className="h-3.5 w-3.5" /> Spin & Win</span></Link>
-              <Link href="/tables" className="text-zinc-500 hover:text-gold-400"><span className="inline-flex items-center gap-1.5"><QrCode className="h-3.5 w-3.5" /> Table QR codes</span></Link>
-              <Link href="/admin/login" className="text-zinc-500 hover:text-gold-400"><span className="inline-flex items-center gap-1.5"><Coffee className="h-3.5 w-3.5" /> Admin</span></Link>
+              {FOOT_LINKS.map((l) => {
+                const Icon = l.icon;
+                return (
+                  <Link key={l.href} href={l.href} className={l.dim ? "text-zinc-500 hover:text-gold-400" : "text-zinc-400 hover:text-gold-400"}>
+                    {Icon ? (<span className="inline-flex items-center gap-1.5"><Icon className="h-3.5 w-3.5" /> {l.label}</span>) : l.label}
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </div>
