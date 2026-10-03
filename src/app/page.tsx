@@ -7,6 +7,7 @@ import {
   Coffee, Gamepad2, MapPin, Phone, Quote, ShoppingBag, Star,
   CalendarCheck, Facebook, Instagram, Twitter, Award, Clock,
   PartyPopper, Camera, QrCode, Gift, PackageSearch, RotateCw, Music,
+  Wallet, Users,
 } from "lucide-react";
 import Hero from "@/components/Hero";
 import { useEffect, useState } from "react";
@@ -35,9 +36,11 @@ const TEASERS = [
   { icon: "Star", kicker: "Rewards Program", title: "Shery Rewards ⭐", desc: "Jitna khao, utne points! Free food, discounts aur VIP perks pao!", href: "/loyalty", btn: "Join Free", gold: true },
   { icon: "RotateCw", kicker: "Daily Fun", title: "Spin & Win 🎡", desc: "Roz ek free spin! Discounts aur free items jeeto!", href: "/spin", btn: "Spin Now", gold: true },
   { icon: "Music", kicker: "Your Playlist", title: "Request a Song 🎵", desc: "Apna favourite gaana cafe me bajwao!", href: "/song-request", btn: "Request Song", gold: false },
+  { icon: "Users", kicker: "Dost Lao, Inaam Pao", title: "Referral Program 🎁", desc: "Doston ko lao, dono ko 10% OFF pao!", href: "/referral", btn: "Get My Code", gold: true },
+  { icon: "Wallet", kicker: "Easy & Secure", title: "Pay Online 💳", desc: "JazzCash ya EasyPaisa se ghar baithe payment karein!", href: "/payment", btn: "Pay Now", gold: false },
 ];
 
-const ICONS: Record<string, any> = { PartyPopper, CalendarCheck, Camera, Gift, PackageSearch, Star, RotateCw, Music };
+const ICONS: Record<string, any> = { PartyPopper, CalendarCheck, Camera, Gift, PackageSearch, Star, RotateCw, Music, Users, Wallet };
 
 const FOOT_LINKS = [
   { href: "/menu", label: "Menu", icon: null },
@@ -50,6 +53,8 @@ const FOOT_LINKS = [
   { href: "/loyalty", label: "Shery Rewards", icon: Star },
   { href: "/spin", label: "Spin & Win", icon: RotateCw },
   { href: "/song-request", label: "Request a song", icon: Music },
+  { href: "/referral", label: "Refer a friend", icon: Users },
+  { href: "/payment", label: "Pay online", icon: Wallet },
   { href: "/tables", label: "Table QR codes", icon: QrCode, dim: true },
   { href: "/admin/login", label: "Admin", icon: Coffee, dim: true },
 ];
