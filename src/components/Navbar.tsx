@@ -11,6 +11,7 @@ const LINKS = [
   { href: "/", label: "Home" },
   { href: "/menu", label: "Menu" },
   { href: "/book", label: "Reserve" },
+  { href: "/payment", label: "Pay Online" },
   { href: "/checkout", label: "Checkout" },
 ];
 
