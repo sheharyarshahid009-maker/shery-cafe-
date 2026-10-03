@@ -29,19 +29,19 @@ const GAMING = [
 ];
 
 const TEASERS = [
-  { icon: "PartyPopper", kicker: "Bespoke Events", title: "Celebrations, Curated 🥂", desc: "Birthdays, anniversaries, corporate soirees — bespoke gatherings with gourmet dining, sheesha lounge, gaming & live music, all under one roof.", href: "/party", btn: "Plan Your Event", gold: true },
-  { icon: "CalendarCheck", kicker: "The Calendar", title: "Evenings at Shery 📅", desc: "Live acoustic nights, karaoke, PS5 tournaments & sufi evenings — there's always something extraordinary happening.", href: "/events", btn: "Explore Events", gold: false },
-  { icon: "Camera", kicker: "Guest Stories", title: "Moments at Shery 📸", desc: "Candid moments from our guests — share your experience and join our wall of fame.", href: "/gallery", btn: "View Moments", gold: false },
-  { icon: "Gift", kicker: "Gifting", title: "The Gift of Indulgence 🎁", desc: "For birthdays & celebrations — gift an unforgettable Shery Cafe experience to someone special.", href: "/gift-cards", btn: "Gift Now", gold: true },
-  { icon: "PackageSearch", kicker: "Real-Time", title: "Live Order Tracking 📦", desc: "Apke order ki live journey — taiyaari se lekar serving tak, har step ki update.", href: "/track", btn: "Track Live", gold: false },
-  { icon: "Star", kicker: "Membership", title: "Shery Privilege Club ⭐", desc: "Har visit pe exclusive rewards — complimentary delights, member discounts & VIP privileges.", href: "/loyalty", btn: "Become a Member", gold: true },
-  { icon: "RotateCw", kicker: "Daily Delight", title: "Spin & Win 🎡", desc: "Roz ek complimentary spin — exciting discounts & treats jeetiye!", href: "/spin", btn: "Spin Now", gold: true },
-  { icon: "Music", kicker: "Curated Sound", title: "Your Soundtrack 🎵", desc: "Apni pasand ka gaana — our lounge, your playlist.", href: "/song-request", btn: "Request a Track", gold: false },
-  { icon: "Users", kicker: "Share & Savor", title: "Invite, Indulge 🎁", desc: "Apne doston ko Shery ka experience dein — aap dono ke liye 10% off.", href: "/referral", btn: "Get My Invite", gold: true },
-  { icon: "Wallet", kicker: "Effortless", title: "Seamless Payments 💳", desc: "JazzCash & EasyPaisa — secure, instant aur hassle-free.", href: "/payment", btn: "Pay Now", gold: false },
-  { icon: "ShoppingBag", kicker: "On Your Time", title: "Skip the Queue 🛍️", desc: "Order ahead, arrive to perfection — apka khana ready, zero wait.", href: "/preorder", btn: "Order Ahead", gold: true },
-  { icon: "Star", kicker: "We Value You", title: "Share Your Experience ⭐", desc: "Apka experience kaisa raha? Rate karein — apki raaye hamare liye qeemti hai!", href: "/feedback", btn: "Give Feedback", gold: false },
-  { icon: "Cake", kicker: "Celebrate With Us", title: "Birthday Club 🎂", desc: "Apni birthday register karein — us din complimentary dessert & VIP treatment!", href: "/birthday-club", btn: "Join Free", gold: true },
+  { icon: "PartyPopper", kicker: "Events & Celebrations", title: "We Host Parties Too! 🎉", desc: "Birthdays, anniversaries, corporate events — celebrate with food, sheesha, PS5, VR and music, all under one roof!", href: "/party", btn: "Book Your Party", gold: true },
+  { icon: "CalendarCheck", kicker: "What's On", title: "Upcoming Events 📅", desc: "Live music nights, karaoke, PS5 tournaments and Sufi nights — there's always something fun at Shery Cafe!", href: "/events", btn: "View Events", gold: false },
+  { icon: "Camera", kicker: "Community", title: "Customer Photos 📸", desc: "Real photos from our guests — share yours and get featured!", href: "/gallery", btn: "View Gallery", gold: false },
+  { icon: "Gift", kicker: "Gifts", title: "Gift Cards 🎁", desc: "Perfect gift for birthdays and celebrations — give the Shery Cafe experience!", href: "/gift-cards", btn: "Buy Gift Card", gold: true },
+  { icon: "PackageSearch", kicker: "Live Updates", title: "Track Your Order 📦", desc: "Apna order live track karein — kab ban raha hai, kab ready hoga!", href: "/track", btn: "Track Order", gold: false },
+  { icon: "Star", kicker: "Rewards", title: "Shery Rewards ⭐", desc: "Jitna khao, utne points! Free food, discounts aur VIP perks pao!", href: "/loyalty", btn: "Join Free", gold: true },
+  { icon: "RotateCw", kicker: "Daily Fun", title: "Spin & Win 🎡", desc: "Roz ek free spin! Discounts aur free items jeeto!", href: "/spin", btn: "Spin Now", gold: true },
+  { icon: "Music", kicker: "Your Playlist", title: "Request a Song 🎵", desc: "Apna favourite gaana cafe me bajwao!", href: "/song-request", btn: "Request Song", gold: false },
+  { icon: "Users", kicker: "Refer & Earn", title: "Referral Program 🎁", desc: "Doston ko lao, dono ko 10% off pao!", href: "/referral", btn: "Get My Code", gold: true },
+  { icon: "Wallet", kicker: "Payments", title: "Pay Online 💳", desc: "JazzCash ya EasyPaisa se ghar baithe payment karein!", href: "/payment", btn: "Pay Now", gold: false },
+  { icon: "ShoppingBag", kicker: "Pickup", title: "Pre-Order Pickup 🛍️", desc: "Ghar se order karo, cafe pohanchte hi khana ready!", href: "/preorder", btn: "Pre-Order Now", gold: true },
+  { icon: "Star", kicker: "Feedback", title: "Give Feedback ⭐", desc: "Apka experience kaisa raha? Rate karein!", href: "/feedback", btn: "Give Feedback", gold: false },
+  { icon: "Cake", kicker: "Birthdays", title: "Birthday Club 🎂", desc: "Birthday register karo — us din free dessert aur surprises!", href: "/birthday-club", btn: "Join Free", gold: true },
 ];
 
 const ICONS: Record<string, any> = { PartyPopper, CalendarCheck, Camera, Gift, PackageSearch, Star, RotateCw, Music, Users, Wallet, ShoppingBag, Cake };
@@ -49,17 +49,17 @@ const ICONS: Record<string, any> = { PartyPopper, CalendarCheck, Camera, Gift, P
 const FOOT_LINKS = [
   { href: "/menu", label: "Menu", icon: null },
   { href: "/book", label: "Reserve a table", icon: CalendarCheck },
-  { href: "/party", label: "Plan an event", icon: PartyPopper },
-  { href: "/events", label: "Evenings at Shery", icon: CalendarCheck },
-  { href: "/gallery", label: "Guest moments", icon: Camera },
+  { href: "/party", label: "Book a party", icon: PartyPopper },
+  { href: "/events", label: "Events", icon: CalendarCheck },
+  { href: "/gallery", label: "Customer photos", icon: Camera },
   { href: "/gift-cards", label: "Gift cards", icon: Gift },
-  { href: "/track", label: "Track live", icon: PackageSearch },
-  { href: "/loyalty", label: "Privilege Club", icon: Star },
+  { href: "/track", label: "Track order", icon: PackageSearch },
+  { href: "/loyalty", label: "Shery Rewards", icon: Star },
   { href: "/spin", label: "Spin & Win", icon: RotateCw },
-  { href: "/song-request", label: "Request a track", icon: Music },
-  { href: "/referral", label: "Invite & indulge", icon: Users },
+  { href: "/song-request", label: "Request a song", icon: Music },
+  { href: "/referral", label: "Refer a friend", icon: Users },
   { href: "/payment", label: "Pay online", icon: Wallet },
-  { href: "/preorder", label: "Order ahead", icon: ShoppingBag },
+  { href: "/preorder", label: "Pre-order", icon: ShoppingBag },
   { href: "/feedback", label: "Give feedback", icon: Star },
   { href: "/birthday-club", label: "Birthday Club", icon: Cake },
   { href: "/tables", label: "Table QR codes", icon: QrCode, dim: true },
@@ -83,8 +83,8 @@ export default function HomePage() {
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
         <div className="mb-8 flex items-end justify-between">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-gold-500">Guest favourites</p>
-            <h2 className="section-title mt-1">Signature Selection</h2>
+            <p className="text-xs font-semibold uppercase tracking-widest text-gold-500">Customer favourites</p>
+            <h2 className="section-title mt-1">Bestsellers</h2>
           </div>
           <Link href="/menu" className="btn-ghost hidden sm:inline-flex"><ShoppingBag className="h-4 w-4" /> Full Menu</Link>
         </div>
@@ -143,8 +143,8 @@ export default function HomePage() {
         );
       })}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
-        <p className="text-xs font-semibold uppercase tracking-widest text-gold-500">Testimonials</p>
-        <h2 className="section-title mt-1">Words From Our Guests</h2>
+        <p className="text-xs font-semibold uppercase tracking-widest text-gold-500">Reviews</p>
+        <h2 className="section-title mt-1">What Our Guests Say</h2>
         <div className="mt-8 grid gap-5 md:grid-cols-3">
           {REVIEWS.map((r, i) => (
             <motion.figure key={r.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.08 }} className="glass p-6">
@@ -159,8 +159,7 @@ export default function HomePage() {
         </div>
       </section>
       <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6">
-        <p className="text-xs font-semibold uppercase tracking-widest text-gold-500">The Space</p>
-        <h2 className="section-title">The Ambience</h2>
+        <h2 className="section-title">Inside Shery Cafe</h2>
         <div className="mt-6 grid grid-cols-2 gap-3 md:grid-cols-4">
           {GALLERY.map((id, i) => (
             <motion.div key={id} initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.06 }} className="relative h-44 overflow-hidden rounded-2xl border border-white/10 md:h-56">
