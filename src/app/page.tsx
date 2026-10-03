@@ -40,6 +40,7 @@ const TEASERS = [
   { icon: "Users", kicker: "Share & Savor", title: "Invite, Indulge 🎁", desc: "Apne doston ko Shery ka experience dein — aap dono ke liye 10% off.", href: "/referral", btn: "Get My Invite", gold: true },
   { icon: "Wallet", kicker: "Effortless", title: "Seamless Payments 💳", desc: "JazzCash & EasyPaisa — secure, instant aur hassle-free.", href: "/payment", btn: "Pay Now", gold: false },
   { icon: "ShoppingBag", kicker: "On Your Time", title: "Skip the Queue 🛍️", desc: "Order ahead, arrive to perfection — apka khana ready, zero wait.", href: "/preorder", btn: "Order Ahead", gold: true },
+  { icon: "Star", kicker: "We Value You", title: "Share Your Experience ⭐", desc: "Apka experience kaisa raha? Rate karein — apki raaye hamare liye qeemti hai!", href: "/feedback", btn: "Give Feedback", gold: false },
 ];
 
 const ICONS: Record<string, any> = { PartyPopper, CalendarCheck, Camera, Gift, PackageSearch, Star, RotateCw, Music, Users, Wallet, ShoppingBag };
@@ -58,6 +59,7 @@ const FOOT_LINKS = [
   { href: "/referral", label: "Invite & indulge", icon: Users },
   { href: "/payment", label: "Pay online", icon: Wallet },
   { href: "/preorder", label: "Order ahead", icon: ShoppingBag },
+  { href: "/feedback", label: "Give feedback", icon: Star },
   { href: "/tables", label: "Table QR codes", icon: QrCode, dim: true },
   { href: "/admin/login", label: "Admin", icon: Coffee, dim: true },
 ];
