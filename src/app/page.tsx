@@ -39,9 +39,10 @@ const TEASERS = [
   { icon: "Music", kicker: "Your Playlist", title: "Request a Song 🎵", desc: "Apna favourite gaana cafe me bajwao!", href: "/song-request", btn: "Request Song", gold: false },
   { icon: "Users", kicker: "Dost Lao, Inaam Pao", title: "Referral Program 🎁", desc: "Doston ko lao, dono ko 10% OFF pao!", href: "/referral", btn: "Get My Code", gold: true },
   { icon: "Wallet", kicker: "Easy & Secure", title: "Pay Online 💳", desc: "JazzCash ya EasyPaisa se ghar baithe payment karein!", href: "/payment", btn: "Pay Now", gold: false },
+  { icon: "ShoppingBag", kicker: "Zero Wait", title: "Pre-Order Pickup 🛍️", desc: "Ghar se order karo, pohanchte hi khana ready!", href: "/preorder", btn: "Pre-Order Now", gold: true },
 ];
 
-const ICONS: Record<string, any> = { PartyPopper, CalendarCheck, Camera, Gift, PackageSearch, Star, RotateCw, Music, Users, Wallet };
+const ICONS: Record<string, any> = { PartyPopper, CalendarCheck, Camera, Gift, PackageSearch, Star, RotateCw, Music, Users, Wallet, ShoppingBag };
 
 const FOOT_LINKS = [
   { href: "/menu", label: "Menu", icon: null },
@@ -56,6 +57,7 @@ const FOOT_LINKS = [
   { href: "/song-request", label: "Request a song", icon: Music },
   { href: "/referral", label: "Refer a friend", icon: Users },
   { href: "/payment", label: "Pay online", icon: Wallet },
+  { href: "/preorder", label: "Pre-order pickup", icon: ShoppingBag },
   { href: "/tables", label: "Table QR codes", icon: QrCode, dim: true },
   { href: "/admin/login", label: "Admin", icon: Coffee, dim: true },
 ];
