@@ -24,6 +24,19 @@ const BannerInput = z.object({
 
 const BannerPatch = BannerInput.partial().strict();
 
+// Happy hour time locks: code -> allowed time window (24h, Pakistan time UTC+5)
+const HAPPY_HOUR_LOCKS: Record<string, { start: number; end: number; label: string }> = {
+  HAPPY20: { start: 16, end: 19, label: "4 PM – 7 PM" },
+  LATE15: { start: 0, end: 2, label: "12 AM – 2 AM" },
+};
+
+function pakistanHour(): number {
+  const now = new Date();
+  const utc = now.getTime() + now.getTimezoneOffset() * 60000;
+  const pkt = new Date(utc + 5 * 3600000);
+  return pkt.getHours() + pkt.getMinutes() / 60;
+}
+
 /** Public: validate a promo code at checkout. Admin: list all promos. */
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
@@ -34,6 +47,17 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ error: "Invalid promo code" }, { status: 404 });
     if (promo.expiresAt && promo.expiresAt < new Date())
       return NextResponse.json({ error: "Promo code expired" }, { status: 400 });
+    // Time-lock check for happy hour codes
+    const lock = HAPPY_HOUR_LOCKS[promo.code];
+    if (lock) {
+      const h = pakistanHour();
+      if (h < lock.start || h >= lock.end) {
+        return NextResponse.json(
+          { error: `Ye code sirf Happy Hours me valid hai (${lock.label})` },
+          { status: 400 }
+        );
+      }
+    }
     return NextResponse.json({ promo });
   }
   const denied = await requireAdmin(req);
