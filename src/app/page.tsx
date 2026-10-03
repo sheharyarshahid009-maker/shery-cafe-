@@ -7,7 +7,7 @@ import {
   Coffee, Gamepad2, MapPin, Phone, Quote, ShoppingBag, Star,
   CalendarCheck, Facebook, Instagram, Twitter, Award, Clock,
   PartyPopper, Camera, QrCode, Gift, PackageSearch, RotateCw, Music,
-  Wallet, Users,
+  Wallet, Users, Cake,
 } from "lucide-react";
 import Hero from "@/components/Hero";
 import HappyHourBanner from "@/components/HappyHourBanner";
@@ -41,9 +41,10 @@ const TEASERS = [
   { icon: "Wallet", kicker: "Effortless", title: "Seamless Payments 💳", desc: "JazzCash & EasyPaisa — secure, instant aur hassle-free.", href: "/payment", btn: "Pay Now", gold: false },
   { icon: "ShoppingBag", kicker: "On Your Time", title: "Skip the Queue 🛍️", desc: "Order ahead, arrive to perfection — apka khana ready, zero wait.", href: "/preorder", btn: "Order Ahead", gold: true },
   { icon: "Star", kicker: "We Value You", title: "Share Your Experience ⭐", desc: "Apka experience kaisa raha? Rate karein — apki raaye hamare liye qeemti hai!", href: "/feedback", btn: "Give Feedback", gold: false },
+  { icon: "Cake", kicker: "Celebrate With Us", title: "Birthday Club 🎂", desc: "Apni birthday register karein — us din complimentary dessert & VIP treatment!", href: "/birthday-club", btn: "Join Free", gold: true },
 ];
 
-const ICONS: Record<string, any> = { PartyPopper, CalendarCheck, Camera, Gift, PackageSearch, Star, RotateCw, Music, Users, Wallet, ShoppingBag };
+const ICONS: Record<string, any> = { PartyPopper, CalendarCheck, Camera, Gift, PackageSearch, Star, RotateCw, Music, Users, Wallet, ShoppingBag, Cake };
 
 const FOOT_LINKS = [
   { href: "/menu", label: "Menu", icon: null },
@@ -60,6 +61,7 @@ const FOOT_LINKS = [
   { href: "/payment", label: "Pay online", icon: Wallet },
   { href: "/preorder", label: "Order ahead", icon: ShoppingBag },
   { href: "/feedback", label: "Give feedback", icon: Star },
+  { href: "/birthday-club", label: "Birthday Club", icon: Cake },
   { href: "/tables", label: "Table QR codes", icon: QrCode, dim: true },
   { href: "/admin/login", label: "Admin", icon: Coffee, dim: true },
 ];
