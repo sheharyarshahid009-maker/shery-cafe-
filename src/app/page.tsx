@@ -10,6 +10,7 @@ import {
   Wallet, Users,
 } from "lucide-react";
 import Hero from "@/components/Hero";
+import HappyHourBanner from "@/components/HappyHourBanner";
 import { useEffect, useState } from "react";
 import type { MenuItemDTO } from "@/components/MenuCard";
 import { formatPKR } from "@/lib/format";
@@ -70,6 +71,9 @@ export default function HomePage() {
   return (
     <div>
       <Hero />
+      <div className="pt-6">
+        <HappyHourBanner />
+      </div>
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
         <div className="mb-8 flex items-end justify-between">
           <div>
