@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import {
   Coffee, Gamepad2, MapPin, Phone, Quote, ShoppingBag, Star,
   CalendarCheck, Facebook, Instagram, Twitter, Award, Clock,
-  PartyPopper, Camera, QrCode, Gift,
+  PartyPopper, Camera, QrCode, Gift, PackageSearch,
 } from "lucide-react";
 import Hero from "@/components/Hero";
 import { useEffect, useState } from "react";
@@ -131,6 +131,18 @@ export default function HomePage() {
           </div>
         </motion.div>
       </section>
+      <section className="mx-auto max-w-7xl px-4 sm:px-6">
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="relative overflow-hidden rounded-3xl border border-white/10 bg-ink-900/60 p-8 sm:p-10">
+          <div className="relative flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
+            <div>
+              <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-gold-500"><PackageSearch className="h-4 w-4" /> Live Updates</p>
+              <h2 className="section-title mt-2">Track Your Order 📦</h2>
+              <p className="mt-3 max-w-xl text-sm text-zinc-400">Apna order live track karein — kab ban raha hai, kab ready hoga, sab pata chalega!</p>
+            </div>
+            <Link href="/track" className="btn-gold shrink-0"><PackageSearch className="h-5 w-5" /> Track Order</Link>
+          </div>
+        </motion.div>
+      </section>
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
         <p className="text-xs font-semibold uppercase tracking-widest text-gold-500">Reviews</p>
         <h2 className="section-title mt-1">Loved by our guests</h2>
@@ -204,6 +216,7 @@ export default function HomePage() {
               <Link href="/events" className="text-zinc-400 hover:text-gold-400"><span className="inline-flex items-center gap-1.5"><CalendarCheck className="h-3.5 w-3.5" /> Upcoming events</span></Link>
               <Link href="/gallery" className="text-zinc-400 hover:text-gold-400"><span className="inline-flex items-center gap-1.5"><Camera className="h-3.5 w-3.5" /> Customer photos</span></Link>
               <Link href="/gift-cards" className="text-zinc-400 hover:text-gold-400"><span className="inline-flex items-center gap-1.5"><Gift className="h-3.5 w-3.5" /> Gift cards</span></Link>
+              <Link href="/track" className="text-zinc-400 hover:text-gold-400"><span className="inline-flex items-center gap-1.5"><PackageSearch className="h-3.5 w-3.5" /> Track order</span></Link>
               <Link href="/tables" className="text-zinc-500 hover:text-gold-400"><span className="inline-flex items-center gap-1.5"><QrCode className="h-3.5 w-3.5" /> Table QR codes</span></Link>
               <Link href="/admin/login" className="text-zinc-500 hover:text-gold-400"><span className="inline-flex items-center gap-1.5"><Coffee className="h-3.5 w-3.5" /> Admin</span></Link>
             </div>
